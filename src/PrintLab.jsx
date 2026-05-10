@@ -36,8 +36,9 @@ const config = {
 //   is_glittery: ja / nee
 //
 // prints.csv vereiste kolommen:
-//   naam | beschrijving | bestand | materiaalAdvies | gewichtGram | type | prijsIndicatie
+//   naam | beschrijving | bestand | materiaalAdvies | gewichtGram | type | prijsIndicatie | afbeelding
 //   type: vase / box / torus
+//   afbeelding: pad naar foto in /public, bijv. /images/vase.jpg  (leeg laten = SVG-icoon)
 
 // ═══════════════════════════════════════════════════════════════
 //  GLOBAL CSS
@@ -774,6 +775,13 @@ function STLViewer({ print, onClose }) {
           </button>
         </div>
         <div style={{ position:'relative', background:'var(--bg)' }}>
+          {print.afbeelding && (
+            <img
+              src={print.afbeelding}
+              alt={print.naam}
+              style={{ width:'100%', maxHeight:220, objectFit:'cover', display:'block', borderBottom:'1px solid var(--border)' }}
+            />
+          )}
           <canvas ref={ref} width={720} height={405} style={{ display:'block', width:'100%', cursor:grab?'grabbing':'grab' }} />
           <div style={{ position:'absolute', bottom:10, left:14, fontSize:10, color:'rgba(237,232,224,.22)', fontFamily:'Space Mono', letterSpacing:'.07em', pointerEvents:'none' }}>
             drag to rotate — scroll to zoom
@@ -828,9 +836,12 @@ function Showcase({ prints }) {
       <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(250px,1fr))', gap:18 }}>
         {prints.map((p, i) => (
           <div key={p.id} className={`pc rev d${Math.min(i + 1, 6)}`} onClick={() => setSel(p)} style={{ padding:28 }}>
-            <div style={{ height:144, background:'var(--bg)', border:'1px solid var(--border)', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:24, position:'relative' }}>
-              <PrintIcon type={p.type} />
-              <span className="mono" style={{ position:'absolute', top:8, right:10, fontSize:9, color:'var(--fg-muted)', letterSpacing:'.1em' }}>3D</span>
+            <div style={{ height:144, background:'var(--bg)', border:'1px solid var(--border)', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:24, position:'relative', overflow:'hidden' }}>
+              {p.afbeelding
+                ? <img src={p.afbeelding} alt={p.naam} style={{ width:'100%', height:'100%', objectFit:'cover', display:'block' }} />
+                : <PrintIcon type={p.type} />
+              }
+              <span className="mono" style={{ position:'absolute', top:8, right:10, fontSize:9, color: p.afbeelding ? 'rgba(237,232,224,.8)' : 'var(--fg-muted)', letterSpacing:'.1em', textShadow: p.afbeelding ? '0 1px 4px rgba(0,0,0,.9)' : 'none' }}>3D</span>
             </div>
             <div className="mono" style={{ fontSize:14, fontWeight:700, color:'var(--fg)', marginBottom:7 }}>{p.naam}</div>
             <div style={{ fontSize:13, color:'var(--fg-muted)', marginBottom:22, lineHeight:1.58 }}>{p.beschrijving}</div>
