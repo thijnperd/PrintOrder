@@ -332,7 +332,7 @@ function parseCsv(text) {
   return result.data;
 }
 
-function useReveal() {
+function useReveal(deps = []) {
   useEffect(() => {
     const io = new IntersectionObserver(
       entries => entries.forEach(e => {
@@ -342,7 +342,8 @@ function useReveal() {
     );
     document.querySelectorAll('.rev').forEach(el => io.observe(el));
     return () => io.disconnect();
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, deps);
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -973,7 +974,7 @@ function Contact({ filamenten }) {
 // ═══════════════════════════════════════════════════════════════
 export default function App() {
   const { filamenten, prints, loading, error } = useCsvData();
-  useReveal();
+  useReveal([loading]);
 
   if (loading) {
     return (
