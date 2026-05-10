@@ -1,9 +1,9 @@
 naam,kleur,hex,materiaal,prijs_per_kilo,status,is_glittery
-Elegoo Rapid PLA+,Zwart,#1a1a1a,PLA+,17.99,beschikbaar,nee
-Elegoo Rapid PLA+,Wit,#f0ede6,PLA+,17.99,beschikbaar,nee
-Elegoo Matte PLA,Grijs,#7a7a7a,PLA Matte,19.99,beschikbaar,nee
-Elegoo Matte PLA,Oranje,#e8611a,PLA Matte,19.99,beschikbaar,nee
-eSun PETG,Transparant,#b8d8e8,PETG,22.99,bijna op,nee
-eSun TPU 95A,Rood,#c42200,TPU,28.99,uitverkocht,nee
-Elegoo Glitter PLA,Goud Glitter,#d4af37,PLA Glitter,24.99,beschikbaar,ja
-Elegoo Glitter PLA,Zilver Glitter,#c0c0c0,PLA Glitter,24.99,beschikbaar,ja
+Elegoo PLA+,Zwart,#1a1a1a,PLA+,14.99,beschikbaar,nee
+Elegoo PLA+,Wit,#f0ede6,PLA+,14.99,beschikbaar,nee
+Elegoo PLA+,Grijs,#7a7a7a,PLA+,14.99,beschikbaar,nee
+Elegoo Matte PLA,Rood,#c42200,PLA Matte,19.99,beschikbaar,nee
+Elegoo PLA CF,Zwart,#e8611a,PLA CF,21.99,beschikbaar,nee
+Elegoo PLA Galaxy,Blauw,#064e40,PLA Galaxy,19.99,beschikbaar,ja
+Elegoo PLA Wood, Bruin,#bc9579,PLA Wood,19.99,beschikbaar,nee
+Elegoo PETG, Grijs,#7a7a7a,PETG,14.99,beschikbaar,nee

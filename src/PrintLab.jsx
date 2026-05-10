@@ -10,7 +10,7 @@ import {
 //  CONFIG — pas hier je gegevens aan
 // ═══════════════════════════════════════════════════════════════
 const config = {
-  businessName:           "PrintLab",
+  businessName:           "TPrints",
   tagline:                "Custom 3D prints op maat",
   ownerName:              "Thijn",
   printerNaam:            "Elegoo Centauri Carbon",
@@ -897,7 +897,7 @@ function Contact({ filamenten }) {
           filament:    d.filament || '(niet opgegeven)',
           beschrijving: d.beschrijving || '(geen)',
           _replyto:    d.email,
-          _subject:    `PrintLab aanvraag van ${d.naam}`,
+          _subject:    `TPrints aanvraag van ${d.naam}`,
         }),
       });
       if (res.ok) setSt('done');
